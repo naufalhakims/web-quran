@@ -13,8 +13,9 @@ export default function Header() {
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold">
-            Quran Website
+            Quran Web
           </Link>
+            <p className="md:block">Read and Listen to Quran📖</p>
           <div className="hidden md:flex items-center space-x-4">
             <SearchBar />
             <nav>
