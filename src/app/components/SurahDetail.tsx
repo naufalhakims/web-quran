@@ -14,6 +14,13 @@ interface Ayah {
   audio: {
     alafasy: string
   }
+  tafsir: {
+    kemenag: {
+      short: string
+      long: string
+    }
+    quraish: string
+  }
 }
 
 interface Surah {
@@ -49,7 +56,10 @@ export default function SurahDetail({ surah }: { surah: Surah }) {
 
       <h2 className="text-2xl font-semibold mb-4">Ayat-ayat</h2>
       {surah.ayahs.map((ayah) => (
-        <div key={ayah.number.inSurah} className="mb-6">
+        <div 
+          key={ayah.number.inSurah} 
+          className="bg-gray-100 shadow-md rounded-lg p-4 mb-6 border border-gray-200"
+        >
           <p className="text-right text-2xl mb-2 font-arabic">{ayah.arab}</p>
           <p className="text-gray-700 mb-2">{ayah.translation}</p>
           <AudioPlayer 
@@ -58,6 +68,7 @@ export default function SurahDetail({ surah }: { surah: Surah }) {
             isActive={activeAyah === ayah.number.inSurah}
           />
           <p className="text-sm text-gray-500 mt-2">Ayat {ayah.number.inSurah}</p>
+          <p className="text-sm text-gray-500 mt-2">{ayah.tafsir.kemenag.short}</p>
         </div>
       ))}
 
@@ -67,4 +78,3 @@ export default function SurahDetail({ surah }: { surah: Surah }) {
     </div>
   )
 }
-
